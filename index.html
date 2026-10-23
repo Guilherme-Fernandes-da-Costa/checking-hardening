@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Checklist Hardening</title>
+
+    <head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<header class="header">
+
+    <div class="header-content">
+
+        <div>
+            <h1>
+                Checklist de Hardening
+            </h1>
+
+            <p>
+                Network Infrastructure and Data Center Managment
+            </p>
+        </div>
+
+    </div>
+
+</header>
+<body>
+
+  <div class="container">
+
+
+      <form id="hardeningForm">
+
+          <h2>Dados Gerais</h2>
+
+          <div class="grid">
+
+              <div>
+                  <label>Task *</label>
+                  <select id="task" required>
+                      <option value="1">Activation</option>
+                      <option value="0">De-Activation</option>
+                  </select>
+              </div>
+
+              <div>
+                  <label>Data *</label>
+                  <input
+                      type="datetime-local"
+                      id="date"
+                      required
+                  >
+              </div>
+
+              <div>
+                  <label>Responsável *</label>
+                  <input
+                      type="text"
+                      id="responsible"
+                      required
+                  >
+              </div>
+
+              <div>
+                  <label>Vendor *</label>
+                  <select id="vendor" required>
+                      <option value="">Selecione</option>
+                      <option>Cisco</option>
+                      <option>Juniper</option>
+                      <option>Aruba</option>
+                      <option>Windows</option>
+                      <option>F5</option>
+                  </select>
+              </div>
+
+              <div>
+                  <label>Model *</label>
+                  <input type="text" id="model" required>
+              </div>
+
+              <div>
+                  <label>Serial Number *</label>
+                  <input type="text" id="serialNumber" required>
+              </div>
+
+              <div>
+                  <label>Hostname *</label>
+                  <input type="text" id="hostname" required>
+              </div>
+
+              <div>
+                  <label>IP *</label>
+                  <input type="text" id="ip" required>
+              </div>
+
+              <div>
+                  <label>OS Version *</label>
+                  <input type="text" id="osVersion" required>
+              </div>
+
+              <div>
+                  <label>Location *</label>
+                  <select id="location" required>
+                      <option value="">Selecione</option>
+                      <option>RLJ</option>
+                      <option>RJM</option>
+                      <option>SPCT</option>
+                      <option>BH</option>
+                      <option>MIA</option>
+                      <option>NY</option>
+                      <option>SP3</option>
+                      <option>SP4</option>
+                      <option>B3</option>
+                  </select>
+              </div>
+
+              <div>
+                  <label>DNS *</label>
+                  <input type="text" id="dns" required>
+              </div>
+
+              <div>
+                  <label>GMUD/RITM *</label>
+                  <input type="text" id="gmudRitm" required>
+              </div>
+
+          </div>
+
+          <br>  
+          <h2>Checklist</h2>
+
+          <div class="grid">
+
+              <div><label>Terminais</label><select id="terminais"><option value="1">Sim</option><option value="0">Não</option></select></div>
+
+              <div><label>Controle OS</label><select id="controleOs"><option value="1">Sim</option><option value="0">Não</option></select></div>
+
+              <div><label>IPAM</label><select id="ipam"><option value="1">Sim</option><option value="0">Não</option></select></div>
+
+              <div><label>Syslog</label><select id="syslog"><option value="1">Sim</option><option value="0">Não</option></select></div>
+
+              <div><label>SolarWinds</label><select id="solarwinds"><option value="1">Sim</option><option value="0">Não</option></select></div>
+
+              <div><label>Backup</label><select id="backup"><option value="1">Sim</option><option value="0">Não</option></select></div>
+
+              <div><label>NetBox</label><select id="netbox"><option value="1">Sim</option><option value="0">Não</option></select></div>
+
+              <div><label>Hardening</label><select id="hardening"><option value="1">Sim</option><option value="0">Não</option></select></div>
+
+              <div><label>Etiqueta</label><select id="etiqueta"><option value="1">Sim</option><option value="0">Não</option></select></div>
+
+              <div><label>CyberArk</label><select id="cyberark"><option value="1">Sim</option><option value="0">Não</option></select></div>
+
+              <div><label>Planilha Update</label><select id="planilhaUpdate"><option value="1">Sim</option><option value="0">Não</option></select></div>
+
+              <div><label>Consentimento</label><select id="consentimento"><option value="0">Não</option><option value="1">Sim</option></select></div>
+
+          </div>
+
+          <div id="message"></div>
+
+          <button type="submit">                 Salvar Checklist                </button>
+
+      </form>
+
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+
+</body>
+<footer class="footer">
+
+    <div class="footer-content">
+
+        <h3>Equipe de Redes</h3>
+
+        <p>
+            Dúvidas ou suporte:
+        </p>
+
+        <p>
+            redes@empresa.com
+        </p>
+
+    </div>
+
+</footer>
+</html>
+index.html
+Exibindo index.html.

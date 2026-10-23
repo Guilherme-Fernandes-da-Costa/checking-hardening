@@ -1,0 +1,304 @@
+/* ==========================================================
+   Checklist de Hardening — tema inspirado na identidade XP
+   Paleta: preto absoluto + amarelo XP + cinzas neutros
+   ========================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+:root {
+  /* Cores (confira os hex oficiais no brand guide interno) */
+  --xp-yellow: #ffc709;
+  --xp-yellow-hover: #e6b300;
+  --xp-black: #000000;
+  --xp-graphite: #1a1a1a;
+  --xp-gray-700: #4d4d4d;
+  --xp-gray-400: #a3a3a3;
+  --xp-gray-200: #e5e5e5;
+  --xp-gray-100: #f4f4f4;
+  --xp-white: #ffffff;
+  --xp-success: #00a868;
+  --xp-error: #e0322b;
+
+  --font: "Manrope", "Helvetica Neue", Arial, sans-serif;
+
+  --radius: 4px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --t-fast: 150ms;
+  --t-med: 250ms;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--xp-graphite);
+  background: var(--xp-gray-100);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Header ---------- */
+.header {
+  background: var(--xp-black);
+  color: var(--xp-white);
+  border-bottom: 4px solid var(--xp-yellow);
+}
+
+.header-content {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 2.5rem;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.header p {
+  margin: 0.75rem 0 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--xp-gray-400);
+}
+
+/* ---------- Conteúdo ---------- */
+.container {
+  flex: 1;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+#hardeningForm {
+  background: var(--xp-white);
+  border-radius: var(--radius);
+  padding: clamp(1.5rem, 4vw, 3rem);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+#hardeningForm h2 {
+  position: relative;
+  margin: 0 0 1.75rem;
+  padding-left: 1rem;
+  font-size: 1.375rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--xp-black);
+}
+
+/* Barra amarela à esquerda dos títulos de seção */
+#hardeningForm h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  bottom: 0.15em;
+  width: 4px;
+  background: var(--xp-yellow);
+}
+
+#hardeningForm h2:not(:first-child) {
+  margin-top: 3rem;
+  padding-top: 0;
+}
+
+/* Remove o <br> solto do HTML original */
+#hardeningForm > br { display: none; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.5rem 1.25rem;
+}
+
+/* ---------- Campos ---------- */
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--xp-gray-700);
+}
+
+input,
+select {
+  width: 100%;
+  height: 48px;
+  padding: 0 0.875rem;
+  font: inherit;
+  font-size: 0.9375rem;
+  color: var(--xp-graphite);
+  background: var(--xp-white);
+  border: 1px solid var(--xp-gray-200);
+  border-bottom: 2px solid var(--xp-gray-400);
+  border-radius: var(--radius) var(--radius) 0 0;
+  outline: none;
+  transition:
+    border-color var(--t-med) var(--ease),
+    background-color var(--t-med) var(--ease),
+    box-shadow var(--t-med) var(--ease);
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 2.5rem;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.875rem center;
+}
+
+input:hover,
+select:hover {
+  border-bottom-color: var(--xp-black);
+}
+
+/* Foco: sublinhado amarelo, assinatura visual da XP */
+input:focus,
+select:focus {
+  background-color: #fffbea;
+  border-bottom-color: var(--xp-yellow);
+  box-shadow: 0 2px 0 0 var(--xp-yellow);
+}
+
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--xp-black);
+  outline-offset: 2px;
+}
+
+/* Erro só depois que o usuário mexeu no campo */
+input:user-invalid,
+select:user-invalid {
+  border-bottom-color: var(--xp-error);
+  box-shadow: 0 2px 0 0 var(--xp-error);
+}
+
+/* ---------- Mensagem ---------- */
+#message {
+  margin-top: 2rem;
+  font-weight: 600;
+}
+
+#message:empty { display: none; }
+
+#message.success,
+#message.error {
+  padding: 1rem 1.25rem;
+  border-left: 4px solid;
+  border-radius: var(--radius);
+  animation: slideIn var(--t-med) var(--ease);
+}
+
+#message.success {
+  color: #006b42;
+  background: #e6f7ef;
+  border-color: var(--xp-success);
+}
+
+#message.error {
+  color: #a3201b;
+  background: #fdecec;
+  border-color: var(--xp-error);
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Botão ---------- */
+button[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2.5rem;
+  min-width: 220px;
+  height: 52px;
+  padding: 0 2rem;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--xp-black);
+  background: var(--xp-yellow);
+  border: 0;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition:
+    background-color var(--t-fast) var(--ease),
+    transform var(--t-fast) var(--ease);
+}
+
+button[type="submit"]:hover { background: var(--xp-yellow-hover); }
+button[type="submit"]:active { transform: scale(0.98); }
+
+button[type="submit"]:focus-visible {
+  outline: 2px solid var(--xp-black);
+  outline-offset: 3px;
+}
+
+button[type="submit"]:disabled {
+  color: var(--xp-gray-400);
+  background: var(--xp-gray-200);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  background: var(--xp-black);
+  color: var(--xp-gray-400);
+}
+
+.footer-content {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.footer h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--xp-white);
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.footer p:last-child {
+  color: var(--xp-yellow);
+  font-weight: 600;
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 600px) {
+  .header-content { padding: 2rem 1.25rem 1.75rem; }
+  .container { padding: 1.5rem 1rem 3rem; }
+  .grid { grid-template-columns: 1fr; }
+  button[type="submit"] { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
