@@ -1,1 +1,1 @@
-const API_URL = "https://expired-thehun-departure-mixture.trycloudflare.com";
+const API_URL = "https://earthquake-cartoon-additional-keno.trycloudflare.com";
